@@ -1,0 +1,24 @@
+<div class="text-white bg-[#000000] md:w-fit lg:w-fit  whitespace-normal border-4 m-3  rounded  p-5 " >
+    <div [routerLink]="createUrl()" class="text-[1.1rem] cursor-pointer hover:bold hover:text-green-400">
+        <p>{{ question?.title }}</p>
+    </div>
+    <div class="wh">
+      <p class=" text-gray-500 ">
+        {{ truncate(question?.question , 60, "...") }}
+      </p>
+    </div>
+    <div class="mt-10">
+      <div class="flex flex-wrap  gap-5 justify-between">
+          <p>
+            {{ question?.name }}
+          </p>
+          <p >
+            Total answers: {{ question?.answer?.length }}
+          </p>
+          <p>
+              {{ question?.asked_on | date }}
+          </p>
+
+      </div>
+    </div>
+</div>

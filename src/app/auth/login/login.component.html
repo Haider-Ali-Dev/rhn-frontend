@@ -1,0 +1,24 @@
+<div>
+    <div>
+        <h1 class="text-center text-[3rem] text-gray-200">Login</h1>
+    </div>
+    <div class="flex justify-center ">
+        <form (ngSubmit)="loginUser()" class="flex flex-col gap-3 rounded bg-gray-600 border-gray-600 border-4 p-10 w-[350px] text-clip" [formGroup]="loginGroup">
+        <app-alert *ngIf="showMsg">
+            {{ alertMsg }}
+        </app-alert>
+        <app-input [control]="email" type="email" placeholder="Email">
+            
+        </app-input>
+        <app-input [control]="password" type="password" placeholder="Password">
+
+        </app-input>
+            <div class="flex justify-center">
+                <button type="submit" [disabled]="inSubmission || loginGroup.invalid" class="disabled:opacity-50  w-20 p-2  border-4 rounded border-blue-600 bg-blue-600 ">Login</button>
+            </div>
+        </form>
+    </div>
+    
+    
+</div>
+

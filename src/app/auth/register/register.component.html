@@ -1,0 +1,31 @@
+<div>
+    <div>
+        <h1 class="text-center text-[3rem] text-gray-200">Register</h1>
+    </div>
+    <div class="flex justify-center ">
+        <form (ngSubmit)="registerUser()" class="flex flex-col gap-3 rounded bg-gray-600 border-gray-600 border-4 p-10 w-[350px] text-clip"
+         [formGroup]="registerGroup">
+        <app-alert [color]="alertColor" *ngIf="showMsg">
+            {{ alertMsg }}
+        </app-alert>
+        <app-input [control]="name" type="text" placeholder="Name">
+
+        </app-input>
+        <app-input [control]="email" type="email" placeholder="Email">
+            
+        </app-input>
+        <app-input  [control]="password" type="password" placeholder="Password">
+
+
+        </app-input>
+            <div class="flex justify-center">
+                <button
+                [disabled]="inSubmission || registerGroup.invalid"
+                 class="w-20 p-2 disabled:opacity-50  border-4 rounded border-blue-500 bg-blue-500 ">Register
+                </button>
+            </div>
+        </form>
+    </div>
+    
+    
+</div>
