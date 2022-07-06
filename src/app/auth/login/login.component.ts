@@ -46,8 +46,9 @@ export class LoginComponent implements OnInit {
         next: () => {
           this.alertMsg = "You're logged in successfully.";
           this.alertColor = 'green';
-          setInterval(() => {
+          let interval = setInterval(() => {
             this.router.navigate([""])
+            clearInterval(interval)
           }, 1000)
         },
         error: () => {
@@ -56,6 +57,6 @@ export class LoginComponent implements OnInit {
           this.alertMsg =
             'Error while logging you in. Check your password and email.';
         },
-      });
+      })
   }
 }

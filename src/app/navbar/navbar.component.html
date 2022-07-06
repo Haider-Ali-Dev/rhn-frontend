@@ -1,7 +1,31 @@
-<nav class="topnav  text-white" id="myTopnav">
-  <a routerLink="/" routerLinkActive="bg-gray-400">Home</a>
-  <a routerLink="/profile" routerLinkActive="bg-gray-400">Profile</a>
-  <a routerLink="/ask-a-question" routerLinkActive="bg-gray-400">Ask a question</a>
+<nav class="topnav text-white" id="myTopnav">
+  <a
+    [routerLinkActiveOptions]="{
+      exact: true
+    }"
+    routerLink="/"
+    routerLinkActive="bg-gray-400"
+    >Home</a
+  >
+  <ng-template #p>
+    <a
+      *ngIf="auth.user?.id"
+      [routerLinkActiveOptions]="{
+        exact: true
+      }"
+      routerLink="/profile"
+      routerLinkActive="bg-gray-400"
+      >Profile</a
+    >
+    <a routerLink="/ask-a-question" routerLinkActive="bg-gray-400"
+      >Ask a question</a
+    >
+  </ng-template>
+  <ng-container *ngIf="!auth.user?.id else p;">
+    <a routerLink="/register" routerLinkActive="bg-gray-400">Register</a>
+    <a routerLink="/login" routerLinkActive="bg-gray-400">Login</a>
+  </ng-container>
+
   <a class="icon cursor-pointer" (click)="openNavBar()">
     <i class="material-icons">menu</i>
   </a>

@@ -10,7 +10,7 @@ import { ThisReceiver } from '@angular/compiler';
 })
 export class AuthService {
   user: IUser | null = null;
-  constructor(private http: HttpClient, private route: Router) {}
+  constructor(private http: HttpClient) {}
 
   private handleError(error: HttpErrorResponse) {
     return throwError(() => error.error);

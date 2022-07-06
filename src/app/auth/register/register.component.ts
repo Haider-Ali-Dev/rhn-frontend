@@ -50,9 +50,11 @@ export class RegisterComponent implements OnInit {
           this.alertColor = 'green';
           this.alertMsg = "You're registered successfully";
           this.inSubmission = true;
-          setInterval(() => {
+          let interval = setInterval(() => {
             this.router.navigate([""])
+            clearInterval(interval)
           }, 1000)
+  
         
       },
       error: (e) => {

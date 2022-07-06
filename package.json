@@ -6,7 +6,11 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "dev:ssr": "ng run portfolio-ang:serve-ssr",
+    "serve:ssr": "node dist/portfolio-ang/server/main.js",
+    "build:ssr": "ng build && ng run portfolio-ang:server",
+    "prerender": "ng run portfolio-ang:prerender"
   },
   "private": true,
   "dependencies": {
